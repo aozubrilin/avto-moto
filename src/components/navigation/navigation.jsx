@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Navigation = ({ navItems, mod }) => {
+const Navigation = ({ navLinks, mod }) => {
   return (
     <nav className={`nav ${mod ? `nav${mod}` : ``}`}>
       <ul className="nav__list ">
-        {navItems.map((item, index) => (
+        {navLinks.map((item, index) => (
           <li className="nav__item" key={`${index}-${item}`}>
             <a href="/">{item}</a>
           </li>
@@ -13,4 +13,5 @@ const Navigation = ({ navItems, mod }) => {
     </nav>
   );
 };
+
 export default Navigation;
