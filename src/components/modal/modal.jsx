@@ -17,6 +17,13 @@ const Modal = ({ isOpen, onChangeFlagIsModalOpen, updateReviewsDispatch }) => {
 
   const { authorName, advantage, disadvantage, rating, comment } = review;
 
+  const inputName = React.useRef();
+  useEffect(() => {
+    if (isOpen) {
+      inputName.current.focus();
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     localStorage.setItem(
       `review`,
@@ -72,7 +79,6 @@ const Modal = ({ isOpen, onChangeFlagIsModalOpen, updateReviewsDispatch }) => {
       };
     });
 
-    JSON.stringify({ authorName, advantage, disadvantage, comment });
     onModalCloseClick(evt);
   };
 
@@ -148,6 +154,7 @@ const Modal = ({ isOpen, onChangeFlagIsModalOpen, updateReviewsDispatch }) => {
                 Ваше имя
               </label>
               <input
+                ref={inputName}
                 className={`form__input ${
                   isValidName ? `` : `form__input--invalid`
                 }`}
