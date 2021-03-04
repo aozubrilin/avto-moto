@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import OfferInfo from '../offer-info/offer-info';
 import Slider from '../slider/slider';
+import Tabs from '../tabs/tabs';
+import Modal from '../modal/modal';
 
-const MainPage = () => {
+const MainPage = ({ isModalOpen }) => {
   return (
     <React.Fragment>
       <Header />
@@ -14,9 +18,20 @@ const MainPage = () => {
           <OfferInfo />
         </div>
       </section>
+      <Tabs />
       <Footer />
+      <Modal isOpen={isModalOpen} />
     </React.Fragment>
   );
 };
 
-export default MainPage;
+MainPage.propTypes = {
+  isModalOpen: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = ({ isModalOpen }) => {
+  return { isModalOpen };
+};
+
+export { MainPage };
+export default connect(mapStateToProps)(MainPage);

@@ -1,9 +1,8 @@
 import React from 'react';
-import CAR from '../../mocks/car';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const OfferInfo = () => {
-  const { name, price, oldPrice, feauteres, creditPrice } = CAR;
-
+const OfferInfo = ({ name, price, oldPrice, feauteres, creditPrice }) => {
   const feauteresList = feauteres.map((item, index) => (
     <li className="info__feauteres-item" key={`${index}-${item}`}>
       {item}
@@ -28,4 +27,18 @@ const OfferInfo = () => {
   );
 };
 
-export default OfferInfo;
+OfferInfo.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  oldPrice: PropTypes.string.isRequired,
+  creditPrice: PropTypes.string.isRequired,
+  feauteres: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+const mapStateToProps = ({ cars }) => {
+  const { name, price, oldPrice, feauteres, creditPrice } = cars;
+  return { name, price, oldPrice, feauteres, creditPrice };
+};
+
+export { OfferInfo };
+export default connect(mapStateToProps)(OfferInfo);

@@ -1,4 +1,4 @@
-const CAR = {
+export const CAR = {
   name: 'Марпех 11',
   price: '2 300 000',
   oldPrice: '2  400 000',
@@ -32,14 +32,12 @@ const CAR = {
     },
   ],
   feauteres: ['бензин', 'механика', '100 л.с.', '1.4 л'],
-  transmission: 'Роботизированная',
-  power: 249,
+  transmission: 'Механическая',
+  power: 100,
   engineType: 'Бензиновый',
   drive: 'Полный',
-  engineVolume: 2.4,
+  engineVolume: 1.4,
   maxTorque: '370/4500',
   cylinders: '4',
   isNewModel: true,
 };
-
-export default CAR;

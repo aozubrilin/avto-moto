@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import CAR from '../../mocks/car';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const Slider = () => {
-  const { images, previewImages, isNewModel } = CAR;
+const Slider = ({ images, previewImages, isNewModel }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const { image, description } = images[activeIndex];
 
@@ -16,6 +16,7 @@ const Slider = () => {
 
   return (
     <section className="offer__slider slider">
+      <h2 className="visually-hidden">Слайдер. Изображение автомобиля</h2>
       <div
         className={`slider__image ${
           isNewModel ? 'slider__image--new-model' : ''
@@ -27,6 +28,7 @@ const Slider = () => {
         <button
           className="slider__button button-arrow button-arrow--left"
           type="button"
+          aria-label="Стрелка влево.Пререключение слайдера."
           disabled={activeIndex === 0}
           onClick={() => setActiveIndex(activeIndex - 1)}
         />
@@ -34,6 +36,7 @@ const Slider = () => {
         <button
           className="slider__button button-arrow"
           type="button"
+          aria-label="Стрелка вправо.Пререключение слайдера."
           disabled={activeIndex === images.length - 1}
           onClick={() => setActiveIndex(activeIndex + 1)}
         />
@@ -42,4 +45,26 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+Slider.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+  previewImages: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+  isNewModel: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = ({ cars }) => {
+  const { images, previewImages, isNewModel } = cars;
+  return { images, previewImages, isNewModel };
+};
+
+export { Slider };
+export default connect(mapStateToProps)(Slider);
