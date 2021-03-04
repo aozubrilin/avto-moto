@@ -1,4 +1,4 @@
-export const CAR = {
+export const CARS = {
   name: 'Марпех 11',
   price: '2 300 000',
   oldPrice: '2  400 000',

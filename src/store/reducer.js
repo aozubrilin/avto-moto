@@ -1,10 +1,10 @@
 import { ActionType } from './actions';
 import { extend } from '../utils/utils';
-import { CAR } from '../mocks/car';
+import { CARS } from '../mocks/car';
 import { REVIEWS } from '../mocks/review';
 
 const initialState = {
-  cars: CAR,
+  cars: CARS,
   reviews: REVIEWS,
   isModalOpen: false,
 };
