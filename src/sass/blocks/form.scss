@@ -92,6 +92,7 @@
   fill: #bdbec2;
   fill-opacity: 0.7;
   transition: fill 0.3s;
+  cursor: pointer;
 }
 
 .form__rating-input:checked ~ .form__rating-label .form__star-image,

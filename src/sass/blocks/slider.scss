@@ -42,10 +42,6 @@
   @include list-reset();
 }
 
-.slider__button:disabled {
-  opacity: 50%;
-}
-
 @media (max-width: $boundary-width) {
   .slider {
     margin-right: 0;

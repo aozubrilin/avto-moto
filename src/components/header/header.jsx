@@ -7,9 +7,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__wrapper">
-        <a href="/" className="header__logo">
-          <img src={logo} alt="Логотип" width="130" height="55"></img>
-        </a>
+        <div className="header__logo">
+          <img src={logo} alt="Логотип" width="130" height="55" />
+        </div>
         <Navigation navLinks={HEADER_LINKS} />
       </div>
     </header>

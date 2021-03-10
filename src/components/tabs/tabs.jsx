@@ -13,7 +13,6 @@ const Tabs = () => {
       className={`tab-bars__button ${
         activeTabIndex === index ? `tab-bars__button--active` : ``
       }`}
-      type="button"
       onClick={() => setActiveTabIndex(index)}
     >
       {item}
