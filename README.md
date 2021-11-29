@@ -1,4 +1,4 @@
-# Личный проект [«Avto-Moto»](https://aozubrilin.github.io/liga-bank/)
+# Личный проект [«Avto-Moto»](https://aozubrilin.github.io/avto-moto/)
 
 ### О проекте:
 
